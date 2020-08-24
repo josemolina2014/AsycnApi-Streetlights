@@ -1,0 +1,21 @@
+default:
+  app:
+    name: Streetlights API
+    version: 1.0.0
+
+  broker:
+    mqtt:
+      url: mqtt://83
+      topics: ["smartylighting/streetlights/1/0/action/+/turn/on","smartylighting/streetlights/1/0/action/+/turn/off/#","smartylighting/streetlights/1/0/action/+/dim/#"]
+      qos:
+      protocol: mqtt
+      retain:
+      subscribe: true
+
+development:
+
+test:
+
+staging:
+
+production:

@@ -1,0 +1,27 @@
+
+
+mqtt:
+  broker: 
+    # Test broker
+    address: ssl://mrg3jw4qy92zv.messaging.solace.cloud:8883
+    username: solace-cloud-client
+    password: t1n9re9mslbe7ja4cdtus81hvg
+    clientId: demo
+    
+    
+    
+    timeout:
+      completion: 30000
+      disconnection: 5000
+      connection: 30
+      
+  topic:
+    
+    receiveLightMeasurement: smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured
+    
+    turnOn: smartylighting/streetlights/1/0/action/{streetlightId}/turn/on
+    
+    turnOff: smartylighting/streetlights/1/0/action/{streetlightId}/turn/off
+    
+    dimLight: smartylighting/streetlights/1/0/action/{streetlightId}/dim
+    
