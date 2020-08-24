@@ -19,6 +19,16 @@ servers:
     url: api.streetlights.smartylighting.com:{port}
     protocol: mqtt
     description: Test broker
+    bindings:
+      mqtt:
+        clientId: guest
+        cleanSession: false
+        keepAlive: 0
+        lastWill:
+          topic: /will
+          qos: 0
+          message: Guest gone offline.
+          retain: false
     variables:
       port:
         description: Secure connection (TLS) is available through port 8883.
@@ -45,8 +55,6 @@ channels:
     subscribe:
       summary: Receive information about environmental lighting conditions of a particular streetlight.
       operationId: receiveLightMeasurement
-      traits:
-        - $ref: '#/components/operationTraits/kafka'
       message:
         $ref: '#/components/messages/lightMeasured'
 
@@ -56,8 +64,6 @@ channels:
         $ref: '#/components/parameters/streetlightId'
     publish:
       operationId: turnOn
-      traits:
-        - $ref: '#/components/operationTraits/kafka'
       message:
         $ref: '#/components/messages/turnOnOff'
 
@@ -78,8 +84,6 @@ channels:
         $ref: '#/components/parameters/streetlightId'
     publish:
       operationId: dimLight
-      traits:
-        - $ref: '#/components/operationTraits/kafka'
       message:
         $ref: '#/components/messages/dimLight'
 

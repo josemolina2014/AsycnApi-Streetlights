@@ -1,0 +1,15 @@
+
+inicializar broker
+docker run -it -p 1883:1883 -p 9001:9001 eclipse-mosquitto
+
+enviar mensaje  (llamado a pub channel)
+mqtt pub -t 'smartylighting/streetlights/1/0/event/2/lighting/measured' -h 'localhost' -m '{"lumens": 3, "sentAt": "2020-08-16T12:34:32.000Z"}'
+
+
+mqtt pub -t 'smartylighting/streetlights/1/0/event/1/lighting/measured' -h 'localhost' -m '{"id": 1, "lumens": 3, "sentAt": "2017-06-07T12:34:32.000Z"}'
+
+mqtt pub -t 'smartylighting/streetlights/1/0/action/1/turn/on' -h 'localhost' -m '{"id": 1, "lumens": 3, "sentAt": "2017-06-07T12:34:32.000Z"}'
+
+
+smartylighting/streetlights/1/0/event/1/lighting/measured
+
